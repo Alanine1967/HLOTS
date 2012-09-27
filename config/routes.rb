@@ -1,5 +1,13 @@
 HLOTSSite::Application.routes.draw do
 
+  get "individuals/edit"
+
+  get "individuals/index"
+
+  get "individuals/new"
+
+  get "individuals/show"
+
   root to: "front_end#home"
   resources :seasons do
     resources :episodes
