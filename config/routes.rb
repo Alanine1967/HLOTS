@@ -1,11 +1,9 @@
 HLOTSSite::Application.routes.draw do
-  resources :seasons
 
   root to: "front_end#home"
-  # get "front_end/home"
-  # get "front_end/about"
-  # get "front_end/contact"
-  # get "front_end/search"
+  resources :seasons do
+    resources :episodes
+  end
   match 'about' => 'front_end#about'
   match 'contact' => 'front_end#contact'
   match 'search' => 'front_end#search'
