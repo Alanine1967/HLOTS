@@ -1,2 +1,22 @@
-%h1 Episodes#index
-%p Find me in app/views/episodes/index.html.haml
+%h2 Episodes
+
+%table
+  %tr
+    %th Number
+    %th Title
+    %th.link
+    %th.link
+    %th.link
+    %th.link
+  - @episodes.each do |episode|
+    %tr
+      %td= episode.number
+      %td= episode.title
+      %td.link= link_to 'cast & crew', season_episodes_path(@season)
+      %td.link= link_to 'Edit', edit_season_episode_path(@season, episode)
+      %td.link= link_to 'Show', season_episode_path(@season, episode)
+      %td.link= link_to 'Destroy', [@season, episode], method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Episode', new_season_episode_path(@season)

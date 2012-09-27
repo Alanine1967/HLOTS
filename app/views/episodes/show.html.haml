@@ -1,0 +1,18 @@
+h2= "Season #{@season}"
+
+%p
+  .label Number:
+  = @episode.number
+%p
+  .label Title:
+  = @episode.title
+%p
+  .label First Shown:
+  = @episode.first_shown
+%p
+  .label Synopsis:
+  = @episode.brief_desc
+  
+= link_to 'Edit', edit_season_path(@season, @episode)
+\|
+= link_to 'Back', season_episodes_path

@@ -5,8 +5,10 @@ class CreateEpisodes < ActiveRecord::Migration
       t.text :title
       t.date :first_shown
       t.string :brief_desc
-
+      t.integer :season_id
+      
       t.timestamps
     end
+    add_index :episodes, :season_id
   end
 end

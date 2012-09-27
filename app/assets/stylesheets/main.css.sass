@@ -1,0 +1,83 @@
+$first_colour: #F2E6D0
+$second_colour: #BFB5A8
+$third_colour: #8C7F77
+$fourth_colour: #593636
+$fifth_colour: #735555
+
+@mixin box_shadow
+  -webkit-box-shadow: 5px 5px 5px 5px
+  box-shadow: 5px 5px 5px 5px
+  
+@mixin rounded_corners
+  -webkit-border-radius: 10px
+  border-radius: 10px
+
+@font-face
+  font-family: Chunkfive
+  src: url('fonts/Chunckfive.otf')
+  
+@font-face
+  font-family: Nunito-Regular
+  src: url('fonts/Nunito-Regular.ttf')
+  
+@font-face
+  font-family: Nunito-Light
+  src: url('fonts/Nunito-Light.ttf')
+  
+body
+  font-family: Nunito-Light, Arial, Helvetica, sans-serif
+  width: 960px
+  background-image: url('graveyard.jpg')
+  
+h1, h2, th
+  font-family: Chunkfive, Georgia, Palatino, serif
+  
+.banner
+  color: $first_colour
+  background: $third_colour
+  width: 960px
+  margin: 20px 0 50px 20px
+  padding: 0 0 0 5px
+  @include box_shadow
+  opacity: 0.9
+  @include rounded_corners
+  #banner_image
+    position: absolute
+    top: 20px
+    left: 10px
+  #banner_title
+    position: absolute
+    top: 30px
+    left: 200px
+    
+.nav
+  position: fixed
+  top: 80px
+  left: 650px
+    
+.main
+  background: $second_colour
+  width: 940px
+  margin: 100px 0 0 20px
+  padding: 15px
+  @include box_shadow
+  @include rounded_corners
+  opacity: 0.8
+
+.ashtray
+  background-image: url('ashtray.jpg')
+  
+.barking
+  background-image: url('barking_dog.jpg')
+  
+th, td
+  width: 150px
+  text-align: left
+  padding: 5px
+  
+.link
+  width: 80px
+  
+.label
+  font-weight: bold
+  

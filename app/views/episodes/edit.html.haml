@@ -1,2 +1,5 @@
-%h1 Episodes#edit
-%p Find me in app/views/episodes/edit.html.haml
+%h1= "Edit episode number #{@episode.number}"
+
+= render 'form'
+
+= link_to 'Back', season_episodes_path(@season)

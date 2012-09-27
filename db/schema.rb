@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927102812) do
+ActiveRecord::Schema.define(:version => 20120927141758) do
+
+  create_table "episodes", :force => true do |t|
+    t.integer  "number"
+    t.text     "title"
+    t.date     "first_shown"
+    t.string   "brief_desc"
+    t.integer  "season_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "episodes", ["season_id"], :name => "index_episodes_on_season_id"
 
   create_table "seasons", :force => true do |t|
     t.integer  "number"
