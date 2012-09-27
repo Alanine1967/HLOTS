@@ -12,7 +12,7 @@
     %tr
       %td= episode.number
       %td= episode.title
-      %td.link= link_to 'cast & crew', season_episodes_path(@season)
+      %td.link= link_to 'cast & crew', individuals_path
       %td.link= link_to 'Edit', edit_season_episode_path(@season, episode)
       %td.link= link_to 'Show', season_episode_path(@season, episode)
       %td.link= link_to 'Destroy', [@season, episode], method: :delete, data: { confirm: 'Are you sure?' }
