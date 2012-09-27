@@ -1,10 +1,13 @@
 HLOTSSite::Application.routes.draw do
   root to: "front_end#home"
-  get "front_end/home"
-  get "front_end/about"
-  get "front_end/contact"
-  get "front_end/search"
-
+  # get "front_end/home"
+  # get "front_end/about"
+  # get "front_end/contact"
+  # get "front_end/search"
+  match 'about' => 'front_end#about'
+  match 'contact' => 'front_end#contact'
+  match 'search' => 'front_end#search'
+  
   devise_for :users
 
   # The priority is based upon order of creation:
