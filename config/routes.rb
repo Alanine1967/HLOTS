@@ -1,4 +1,6 @@
 HLOTSSite::Application.routes.draw do
+  resources :seasons
+
   root to: "front_end#home"
   # get "front_end/home"
   # get "front_end/about"

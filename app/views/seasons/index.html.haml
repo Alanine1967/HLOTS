@@ -1,0 +1,19 @@
+%h1 Listing seasons
+
+%table
+  %tr
+    %th Number
+    %th First shown
+    %th.link
+    %th.link
+
+  - @seasons.each do |season|
+    %tr
+      %td= season.number
+      %td= season.first_shown.strftime("%d/%m/%Y")
+      %td.link= link_to 'Edit', edit_season_path(season)
+      %td.link= link_to 'Destroy', season, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Season', new_season_path
