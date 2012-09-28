@@ -15,6 +15,6 @@
 class Episode < ActiveRecord::Base
   attr_accessible :brief_desc, :first_shown, :number, :title
   belongs_to :season
-  belongs_to :participation
-  has_many :individuals, through: :participation
+  has_many :participations
+  has_many :individuals, through: :participations
 end

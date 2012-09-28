@@ -10,10 +10,11 @@
 #  biography   :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  cast        :boolean
 #
 
 class Individual < ActiveRecord::Base
   attr_accessible :biography, :first_name, :middle_name, :role, :surname
-  belongs_to :participation
-  has_many :episodes, through: :participation
+  has_many :participations
+  has_many :episodes, through: :participations
 end

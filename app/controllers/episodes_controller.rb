@@ -7,15 +7,11 @@ class EpisodesController < ApplicationController
   end
   
   def show
-    @episode = Episode.find(params[:id])
+    respond_with(@episode = Episode.find(params[:id]))
   end
 
   def new
     respond_with(@episode = @season.episodes.build)
-  end
-
-  def edit
-    @episode = Episode.find(params[:id])
   end
 
   def create
@@ -26,6 +22,26 @@ class EpisodesController < ApplicationController
     else
       redirect_to :back
     end
+  end
+
+  def new_individual
+    @episode = Episode.find(params[:id])
+    @individual = Individual.new
+    @participation = Participation.create({episode_id: @episode.id})
+  end
+  
+  def create_individual
+    @individual = Individual.create(params[:individual])
+    if @individual.save
+      @participation[:individual_id] = @individual.id
+      redirect_to edit_season_episode(@season, @episode)
+    else
+      redirect_to :back
+    end
+  end
+  
+  def edit
+    @episode = Episode.find(params[:id])
   end
 
   def update

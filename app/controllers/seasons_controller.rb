@@ -8,6 +8,10 @@ class SeasonsController < ApplicationController
   def new
     respond_with(@season = Season.new)
   end
+  
+  def show
+    redirect_to seasons_path
+  end
 
   def edit
     @season = Season.find(params[:id])

@@ -1,6 +1,7 @@
 HLOTSSite::Application.routes.draw do
 
   root to: "front_end#home"
+  match 'new_individual' => 'episodes#new_individual'
   resources :seasons do
     resources :episodes
   end
@@ -8,6 +9,7 @@ HLOTSSite::Application.routes.draw do
   match 'about' => 'front_end#about'
   match 'contact' => 'front_end#contact'
   match 'search' => 'front_end#search'
+
   
   devise_for :users
 

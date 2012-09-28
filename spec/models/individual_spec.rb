@@ -10,6 +10,7 @@
 #  biography   :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  cast        :boolean
 #
 
 require 'spec_helper'
