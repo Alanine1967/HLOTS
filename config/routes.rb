@@ -1,16 +1,17 @@
 HLOTSSite::Application.routes.draw do
 
-  root to: "front_end#home"
-  match 'new_individual' => 'episodes#new_individual'
-  resources :seasons do
+  root to: 'front_end#home'
+  scope controller: :front_end do
+    match 'about' => :about
+    match 'contact' => :contact
+    match 'search' => :search
+  end
+  resources :seasons, shallow: true do
     resources :episodes
   end
-  resources :individuals
-  match 'about' => 'front_end#about'
-  match 'contact' => 'front_end#contact'
-  match 'search' => 'front_end#search'
-
-  
+  resources :individuals, except: :new
+  match 'add/:episode' => 'individuals#new', as: :new_individual, via: :get
+ 
   devise_for :users
 
   # The priority is based upon order of creation:
