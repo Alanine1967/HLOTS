@@ -5,7 +5,6 @@ class IndividualsController < ApplicationController
   end
 
   def index
-    cast_or_crew(@episode.individuals)
   end
 
   def new

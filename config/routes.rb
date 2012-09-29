@@ -6,7 +6,7 @@ HLOTSSite::Application.routes.draw do
     match 'contact' => :contact
     match 'search' => :search
   end
-  resources :seasons, shallow: true do
+  resources :seasons do
     resources :episodes
   end
   resources :individuals, except: :new

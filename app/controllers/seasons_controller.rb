@@ -2,11 +2,11 @@ class SeasonsController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-    respond_with(@seasons = Season.all)
+    @seasons = Season.all
   end
 
   def new
-    respond_with(@season = Season.new)
+    @season = Season.new
   end
   
   def show

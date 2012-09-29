@@ -1,26 +1,26 @@
 class EpisodesController < ApplicationController
   respond_to :html, :xml, :json
   before_filter :get_season
-  
+
   def index
-    respond_with(@episodes = Episode.all)
+    @episodes = @season.episodes
   end
   
   def show
-    respond_with(@episode = Episode.find(params[:id]))
+    @episode = Episode.find(params[:id])
   end
-
+  
   def new
-    respond_with(@episode = @season.episodes.build)
+    @episode = @season.episodes.build
   end
-
+  
   def create
-    @episode = @season.episodes.create(params[:episode])
+    @episode = @season.episodes.build(params[:episode])
     if @episode.save
       redirect_to season_episodes_path, 
-      notice: 'Episode was successfully created.'
+                              notice: "Episode created!"
     else
-      redirect_to :back
+      render action: "new"
     end
   end
   
@@ -40,12 +40,13 @@ class EpisodesController < ApplicationController
   def destroy
     @episode = Episode.find(params[:id])
     @episode.destroy
-    redirect_to season_episodes_path(@season)
+    flash[:notice] = "Episode deleted!"
+    redirect_to season_episodes_url
   end
   
-  private
+  protected
   
     def get_season
-      @season = Season.find(params[:season_id])
+      @season ||= Season.find(params[:season_id])
     end
 end

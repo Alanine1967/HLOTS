@@ -13,6 +13,6 @@ h2= "Season #{@season}"
   .label Synopsis:
   = @episode.brief_desc
   
-= link_to 'Edit', edit_season_path(@season, @episode)
+= link_to 'Edit', edit_season_episode_path(@season, @episode)
 \|
 = link_to 'Back', season_episodes_path

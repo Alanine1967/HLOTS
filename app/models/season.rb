@@ -11,5 +11,5 @@
 
 class Season < ActiveRecord::Base
   attr_accessible :first_shown, :number
-  has_many :episodes
+  has_many :episodes, dependent: :destroy
 end
