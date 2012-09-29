@@ -1,1 +1,45 @@
-%h2= "Episode #{@episode} - Cast and Crew"
+%h1= "Episode #{@episode.number} Credits"
+= link_to 'add cast/crew', new_episode_individual_path
+\|
+
+= link_to 'Seasons', seasons_path
+%br
+- if !@cast.empty?
+  %h2 Cast
+  %table
+    %tr
+      %th Name
+      %th Character
+      %th.link
+      %th.link
+      %th.link
+
+    - @cast.each do |person|
+      %tr
+        %td= "#{person.first_name} #{person.surname}"
+        %td= person.role
+        %td.link= link_to 'Show', episode_individual_path(@episode, person)
+        %td.link= link_to 'Edit', edit_episode_individual_path(@episode, person)
+        %td.link= link_to 'Destroy', [@episode, person], method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+- if !@crew.empty?
+  %h2 Crew
+  %table
+    %tr
+      %th Name
+      %th Function
+      %th.link
+      %th.link
+      %th.link
+
+    - @crew.each do |person|
+      %tr
+        %td= "#{person.first_name} #{person.surname}"
+        %td= person.role
+        %td.link= link_to 'Show', episode_individual_path(@episode, person)
+        %td.link= link_to 'Edit', edit_episode_individual_path(@episode, person)
+        %td.link= link_to 'Destroy', [@episode, person], method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+

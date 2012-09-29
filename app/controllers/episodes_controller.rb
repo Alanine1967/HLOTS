@@ -17,8 +17,7 @@ class EpisodesController < ApplicationController
   def create
     @episode = @season.episodes.build(params[:episode])
     if @episode.save
-      redirect_to season_episodes_path, 
-                              notice: "Episode created!"
+      redirect_to season_episodes_path, notice: "Episode created!"
     else
       render action: "new"
     end
@@ -47,6 +46,6 @@ class EpisodesController < ApplicationController
   protected
   
     def get_season
-      @season ||= Season.find(params[:season_id])
+      @season = Season.find(params[:season_id])
     end
 end

@@ -9,8 +9,10 @@ HLOTSSite::Application.routes.draw do
   resources :seasons do
     resources :episodes
   end
-  resources :individuals, except: :new
-  match 'add/:episode' => 'individuals#new', as: :new_individual, via: :get
+  resources :episodes, except: [:new, :edit, :index, :show, :create, :update, :destroy] do
+    resources :individuals
+  end
+
  
   devise_for :users
 

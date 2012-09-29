@@ -14,7 +14,8 @@
 #
 
 class Individual < ActiveRecord::Base
-  attr_accessible :biography, :first_name, :middle_name, :role, :surname
+  attr_accessible :biography, :first_name, :middle_name, :role, :surname,
+                  :cast
   has_many :participations
   has_many :episodes, through: :participations
 end
